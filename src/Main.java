@@ -1,14 +1,10 @@
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static boolean isAnagram(String s, String t) {
+    public static void isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             System.out.println("false");
-            return false;
+            return;
         }
         char[] sCharArray = s.toCharArray();
         char[] tCharArray = t.toCharArray();
@@ -16,15 +12,14 @@ public class Main {
         Arrays.sort(tCharArray);
         if (Arrays.equals(sCharArray, tCharArray)) {
             System.out.println("true");
-            return true;
+            return;
         }
         System.out.println("false");
-        return false;
     }
 
     // Other Solution
-    public boolean isAnagram2(String s, String t) {
-        if (s.length() != t.length()) return false;
+    public static void isAnagram2(String s, String t) {
+        if (s.length() != t.length()) return;
 
         int[] store = new int[26];
 
@@ -33,9 +28,8 @@ public class Main {
             store[t.charAt(i) - 'a']--;
         }
 
-        for (int n : store) if (n != 0) return false;
+        for (int n : store) if (n != 0) return;
 
-        return true;
     }
 
     public static void main(String[] args) {
@@ -43,5 +37,10 @@ public class Main {
         isAnagram("jar", "jam");
         isAnagram("rats", "star");
         isAnagram("bar", "bars");
+
+        isAnagram2("racecar", "carrace");
+        isAnagram2("jar", "jam");
+        isAnagram2("rats", "star");
+        isAnagram2("bar", "bars");
     }
 }
