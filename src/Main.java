@@ -1,25 +1,24 @@
 import java.util.Arrays;
 
 public class Main {
-    public static void isAnagram(String s, String t) {
+    public static boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
-            System.out.println("false");
-            return;
+            return false;
         }
         char[] sCharArray = s.toCharArray();
         char[] tCharArray = t.toCharArray();
         Arrays.sort(sCharArray);
         Arrays.sort(tCharArray);
         if (Arrays.equals(sCharArray, tCharArray)) {
-            System.out.println("true");
-            return;
+            return true;
         }
-        System.out.println("false");
+
+        return false;
     }
 
     // Other Solution
-    public static void isAnagram2(String s, String t) {
-        if (s.length() != t.length()) return;
+    public static boolean isAnagram2(String s, String t) {
+        if (s.length() != t.length()) return false;
 
         int[] store = new int[26];
 
@@ -28,19 +27,20 @@ public class Main {
             store[t.charAt(i) - 'a']--;
         }
 
-        for (int n : store) if (n != 0) return;
+        for (int n : store) if (n != 0) return false;
 
+        return true;
     }
 
     public static void main(String[] args) {
-        isAnagram("racecar", "carrace");
-        isAnagram("jar", "jam");
-        isAnagram("rats", "star");
-        isAnagram("bar", "bars");
+        System.out.println(isAnagram("racecar", "carrace"));
+        System.out.println(isAnagram("jar", "jam"));
+        System.out.println(isAnagram("rats", "star"));
+        System.out.println(isAnagram("bar", "bars"));
 
-        isAnagram2("racecar", "carrace");
-        isAnagram2("jar", "jam");
-        isAnagram2("rats", "star");
-        isAnagram2("bar", "bars");
+        System.out.println(isAnagram2("racecar", "carrace"));
+        System.out.println(isAnagram2("jar", "jam"));
+        System.out.println(isAnagram2("rats", "star"));
+        System.out.println(isAnagram2("bar", "bars"));
     }
 }
