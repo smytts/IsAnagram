@@ -9,11 +9,8 @@ public class Main {
         char[] tCharArray = t.toCharArray();
         Arrays.sort(sCharArray);
         Arrays.sort(tCharArray);
-        if (Arrays.equals(sCharArray, tCharArray)) {
-            return true;
-        }
-
-        return false;
+        
+        return Arrays.equals(sCharArray, tCharArray);
     }
 
     // Other Solution
